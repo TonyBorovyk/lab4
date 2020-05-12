@@ -18,14 +18,14 @@ public class FormatFile_wav {
         byte[] mainArrayFile = new byte[firstLengthFile];//Дані в цьому масиві записані в 32-бітном форматі
 
         byte[] samplesArray = new byte[(int) file.length() - firstLengthFile];//Масив семплів 57600
-        short[] Array8bit = new short[(samplesArray.length / 2)];//Записуються дані в 16-му форматі
+        short[] Array16bit = new short[(samplesArray.length / 2)];//Записуються дані в 16-му форматі
 
         Scanner in = new Scanner(System.in);
         System.out.print("Введіть у скільки разів розширити аудіо-файл: ");
         int AddedLength = in.nextInt();
         InputClass InputFile = new InputClass();
         //Ввод текстового файла
-        InputFile.InputFile1(file, mainArrayFile, samplesArray, Array8bit);
+        InputFile.InputFile1(file, mainArrayFile, samplesArray, Array16bit);
         //Обробка текстового файла
         int[] mainArrayFileInt = new int[mainArrayFile.length / 4];//Масив для переведення даних з 32 до 8 бітного,тому ділимо на 4
 
@@ -71,7 +71,6 @@ public class FormatFile_wav {
         OutputClass printInfile = new OutputClass();
         printInfile.Out(headerOutBuf, outBuf);
 
-    }
     }
 
 }
